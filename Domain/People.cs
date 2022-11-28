@@ -15,8 +15,31 @@ namespace BirthdateManager
       Birthdate = birthdate;
     }
 
-    public string GetFullName() {
+    public string GetFullName()
+    {
       return $"{FirstName} {LastName}";
+    }
+
+    public string GetFormattedBirthdate()
+    {
+      return $"{Birthdate.Day}/{Birthdate.Month}/{Birthdate.Year}";
+    }
+
+    public int GetDaysForBirthdate()
+    {
+      int daysForBirthdate = (GetNextBirthdate() - DateTime.Now).Days;
+      return daysForBirthdate;
+    }
+
+    public DateTime GetNextBirthdate()
+    {
+      int currentYear = DateTime.Now.Year;
+      DateTime nextBirthdate = new DateTime(currentYear, Birthdate.Month, Birthdate.Day);
+
+      if (DateTime.Now > nextBirthdate)
+        return new DateTime(currentYear + 1, Birthdate.Month, Birthdate.Day);
+
+      return nextBirthdate;
     }
   }
 }
