@@ -10,8 +10,11 @@ namespace TP3
     public static void Main(string[] args)
     {
       Console.WriteLine("Gerenciamento de Aniversários\n");
-      UserAction action = ShowMenuOptions();
-      action.Execute();
+      while (true)
+      {
+        UserAction action = ShowMenuOptions();
+        action.Execute();
+      }
     }
 
     private static UserAction ShowMenuOptions()
@@ -31,9 +34,9 @@ namespace TP3
         case 1:
           return SearchPeople.Build();
         case 2:
-          return SearchPeople.Build();
+          return AddPeople.Build();
         case 3:
-          return SearchPeople.Build();
+          return FinishProgram.Build();
         default:
           throw new Exception("Valor invalido");
       }

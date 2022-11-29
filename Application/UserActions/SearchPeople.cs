@@ -13,7 +13,7 @@ namespace TP3
       public static SearchPeople Build()
       {
         return new SearchPeople(
-          PeopleRepository.Build()
+          new PeopleRepository()
         );
       }
 
