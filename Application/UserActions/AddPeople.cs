@@ -1,7 +1,7 @@
 using System;
 using BirthdateManager.Models;
 
-namespace TP3
+namespace BirthdateManagerConsole
 {
   namespace UserActions
   {

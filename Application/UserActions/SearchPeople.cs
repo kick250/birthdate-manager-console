@@ -2,7 +2,7 @@ using System;
 using BirthdateManager.Models;
 using System.Collections.Generic;
 
-namespace TP3
+namespace BirthdateManagerConsole
 {
   namespace UserActions
   {

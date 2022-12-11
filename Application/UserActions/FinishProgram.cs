@@ -1,6 +1,6 @@
 using System;
 
-namespace TP3
+namespace BirthdateManagerConsole
 {
   namespace UserActions
   {

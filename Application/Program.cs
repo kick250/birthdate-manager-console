@@ -1,9 +1,9 @@
 ﻿using System;
 using BirthdateManager;
-using TP3.UserActions;
+using BirthdateManagerConsole.UserActions;
 using System.Collections.Generic;
 
-namespace TP3
+namespace BirthdateManagerConsole
 {
   class Program
   {

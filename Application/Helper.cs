@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TP3
+namespace BirthdateManagerConsole
 {
   class Helper
   {
