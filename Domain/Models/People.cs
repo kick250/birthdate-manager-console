@@ -64,6 +64,11 @@ namespace BirthdateManager
         return Birthdate;
       }
 
+      public bool HasThisName(string name)
+      {
+        return GetFullName().ToUpper().Contains(name.ToUpper());
+      }
+
       public bool IsBirthdayToday()
       {
         if (Birthdate == null)

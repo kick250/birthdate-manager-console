@@ -54,12 +54,14 @@ namespace BirthdateManager
       {
         var peoples = new List<People> {};
 
-        // foreach(var peopleData in Database.GetByName(name))
-        // {
-        //   peoples.Add(
-        //     Factory.BuildFromDictionary(peopleData)
-        //   );
-        // }
+        foreach(var peopleData in Database.GetAll())
+        {
+          People people = Factory.BuildFromDictionary(peopleData);
+          if (people.HasThisName(name))
+          {
+            peoples.Add(people);
+          }
+        }
 
         return peoples;
       }
