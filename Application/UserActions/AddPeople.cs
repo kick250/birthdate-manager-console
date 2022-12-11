@@ -1,5 +1,6 @@
 using System;
 using BirthdateManager.Models;
+using BirthdateManager.Services;
 
 namespace BirthdateManagerConsole
 {
@@ -7,44 +8,39 @@ namespace BirthdateManagerConsole
   {
     public class AddPeople : UserAction
     {
-      // private PeopleRepository Repository { get; set; }
+      private PeoplesService Service { get; set; }
 
       public static AddPeople Build()
       {
         return new AddPeople(
-          // new PeopleRepository()
+          PeoplesService.Build()
         );
       }
 
-      // public AddPeople(PeopleRepository peopleRepository)
-      // {
-      //   Repository = peopleRepository;
-      // }
-
-      public AddPeople()
+      public AddPeople(PeoplesService service)
       {
-
+        Service = service;
       }
 
       public void Execute()
       {
-        // Console.WriteLine("Cadastrando pessoa!");
-        // while (true)
-        // {
-        //   string firstName = Helper.ReadString(input: "Digite o primeiro nome da pessoa: ");
-        //   string lastName = Helper.ReadString(input: "Digite o sobrenome da pessoa: ");
-        //   DateTime birthdate = GetBirthdate();
+        Console.WriteLine("Cadastrando pessoa!");
+        while (true)
+        {
+          string firstName = Helper.ReadString(input: "Digite o primeiro nome da pessoa: ");
+          string lastName = Helper.ReadString(input: "Digite o sobrenome da pessoa: ");
+          DateTime birthdate = GetBirthdate();
 
-        //   People people = new People(firstName, lastName, birthdate);
+          People people = new People(firstName, lastName, birthdate);
 
-        //   if (!ConfirmCreate(people))
-        //   {
-        //     continue;
-        //   }
+          if (!ConfirmCreate(people))
+          {
+            continue;
+          }
 
-        //   Repository.Save(people);
-        //   return;
-        // }
+          Service.Create(people);
+          return;
+        }
       }
 
       private DateTime GetBirthdate()
