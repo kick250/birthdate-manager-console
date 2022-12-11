@@ -6,15 +6,36 @@ namespace BirthdateManager
   {
     public class People
     {
+      private int? Id { get; set; }
       private string? FirstName { get; set; }
       private string? LastName { get; set; }
       private DateTime? Birthdate { get; set; }
 
-      public People(string? firstName, string? lastName, DateTime? birthdate)
+
+      public People(int? id, string? firstName, string? lastName, DateTime? birthdate)
       {
+        Id = id;
         FirstName = firstName;
         LastName = lastName;
         Birthdate = birthdate;
+      }
+
+      public People(string? firstName, string? lastName, DateTime? birthdate)
+      {
+
+        FirstName = firstName;
+        LastName = lastName;
+        Birthdate = birthdate;
+      }
+
+      public int? GetId()
+      {
+        return Id;
+      }
+
+      public void SetId()
+      {
+        Id = DateTime.Now.Second * 3 * DateTime.Now.Millisecond;
       }
 
       public string GetFirstName()
@@ -100,9 +121,17 @@ namespace BirthdateManager
       {
         var dict = new Dictionary<string, string?>() {};
 
+        dict["Id"] = $"{GetId()}";
         dict["FirstName"] = GetFirstName();
         dict["LastName"] = GetLastName();
-        dict["Birthdate"] = Birthdate.ToString();
+
+        if (Birthdate == null)
+          dict["Birthdate"] = null;
+        else {
+          var birthdate  = DateOnly.FromDateTime((DateTime) Birthdate);
+          dict["Birthdate"] = birthdate.ToString();
+        }
+
 
         return dict;
       }

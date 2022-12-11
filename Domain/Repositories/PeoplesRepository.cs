@@ -31,12 +31,12 @@ namespace BirthdateManager
       {
         var peoples = new List<People> {};
 
-        // foreach(var peopleData in Database.GetAll())
-        // {
-        //   peoples.Add(
-        //     Factory.BuildFromDictionary(peopleData)
-        //   );
-        // }
+        foreach(var peopleData in Database.GetAll())
+        {
+          peoples.Add(
+            Factory.BuildFromDictionary(peopleData)
+          );
+        }
 
         return peoples;
       }
@@ -66,7 +66,8 @@ namespace BirthdateManager
 
       public void Create(People people)
       {
-        // Database.Create(people.ToDictionary());
+        people.SetId();
+        Database.Create(people.ToDictionary());
       }
 
       public void Update(People people)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using BirthdateManager.Models;
 using BirthdateManager.Exceptions;
 using BirthdateManager.Repositories;
-using Database.Exceptions;
 
 namespace BirthdateManager
 {
