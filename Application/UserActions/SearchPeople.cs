@@ -1,5 +1,5 @@
 using System;
-using BirthdateManager;
+using BirthdateManager.Models;
 using System.Collections.Generic;
 
 namespace TP3
@@ -8,58 +8,63 @@ namespace TP3
   {
     public class SearchPeople : UserAction
     {
-      private PeopleRepository Repository { get; set; }
+      // private PeopleRepository Repository { get; set; }
 
       public static SearchPeople Build()
       {
         return new SearchPeople(
-          new PeopleRepository()
+          // new PeopleRepository()
         );
       }
 
-      public SearchPeople(PeopleRepository peopleRepository)
+      // public SearchPeople(PeopleRepository peopleRepository)
+      // {
+      //   Repository = peopleRepository;
+      // }
+
+      public SearchPeople()
       {
-        Repository = peopleRepository;
+
       }
 
       public void Execute()
       {
-        Console.WriteLine("Digite uma parte do nome da pessoa: ");
-        string name = Helper.ReadString(input: "Nome: ");
+        // Console.WriteLine("Digite uma parte do nome da pessoa: ");
+        // string name = Helper.ReadString(input: "Nome: ");
 
-        List<People> peoples = Repository.GetByName(name);
+        // List<People> peoples = Repository.GetByName(name);
 
-        if (peoples.Count() == 0)
-        {
-          Console.WriteLine("Ninguem com esse nome foi encontrado.");
-          return;
-        }
+        // if (peoples.Count() == 0)
+        // {
+        //   Console.WriteLine("Ninguem com esse nome foi encontrado.");
+        //   return;
+        // }
 
-        People people = AskForPeopleOption(peoples);
+        // People people = AskForPeopleOption(peoples);
 
-        Console.WriteLine($"Nome completo: {people.GetFullName()}");
-        Console.WriteLine($"Data de aniversario: {people.GetFormattedBirthdate()}");
-        Console.WriteLine($"Faltam {people.GetDaysForBirthdate()} dias para esse aniversario.");
+        // Console.WriteLine($"Nome completo: {people.GetFullName()}");
+        // Console.WriteLine($"Data de aniversario: {people.GetFormattedBirthdate()}");
+        // Console.WriteLine($"Faltam {people.GetDaysForBirthdate()} dias para esse aniversario.");
       }
 
-      private People AskForPeopleOption(List<People> peoples)
-      {
-        List<int> validValues = new List<int> {};
+      // private People AskForPeopleOption(List<People> peoples)
+      // {
+        // List<int> validValues = new List<int> {};
 
-        Console.WriteLine("Escolha uma das oções abaixo para visualizar os dados: ");
+        // Console.WriteLine("Escolha uma das oções abaixo para visualizar os dados: ");
 
-        for (int index = 0; index < peoples.Count(); index++)
-        {
-          validValues.Add(index);
-          People people = peoples[index];
+        // for (int index = 0; index < peoples.Count(); index++)
+        // {
+        //   validValues.Add(index);
+        //   People people = peoples[index];
 
-          Console.WriteLine($"{index} - {people.GetFullName()}");
-        }
+        //   Console.WriteLine($"{index} - {people.GetFullName()}");
+        // }
 
-        int option = Helper.ReadInt(message: "Sua escolha: ", validValues: validValues);
+        // int option = Helper.ReadInt(message: "Sua escolha: ", validValues: validValues);
 
-        return peoples[option];
-      }
+        // return peoples[option];
+      // }
     }
   }
 }

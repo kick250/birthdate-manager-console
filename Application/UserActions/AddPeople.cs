@@ -1,5 +1,5 @@
 using System;
-using BirthdateManager;
+using BirthdateManager.Models;
 
 namespace TP3
 {
@@ -7,39 +7,44 @@ namespace TP3
   {
     public class AddPeople : UserAction
     {
-      private PeopleRepository Repository { get; set; }
+      // private PeopleRepository Repository { get; set; }
 
       public static AddPeople Build()
       {
         return new AddPeople(
-          new PeopleRepository()
+          // new PeopleRepository()
         );
       }
 
-      public AddPeople(PeopleRepository peopleRepository)
+      // public AddPeople(PeopleRepository peopleRepository)
+      // {
+      //   Repository = peopleRepository;
+      // }
+
+      public AddPeople()
       {
-        Repository = peopleRepository;
+
       }
 
       public void Execute()
       {
-        Console.WriteLine("Cadastrando pessoa!");
-        while (true)
-        {
-          string firstName = Helper.ReadString(input: "Digite o primeiro nome da pessoa: ");
-          string lastName = Helper.ReadString(input: "Digite o sobrenome da pessoa: ");
-          DateTime birthdate = GetBirthdate();
+        // Console.WriteLine("Cadastrando pessoa!");
+        // while (true)
+        // {
+        //   string firstName = Helper.ReadString(input: "Digite o primeiro nome da pessoa: ");
+        //   string lastName = Helper.ReadString(input: "Digite o sobrenome da pessoa: ");
+        //   DateTime birthdate = GetBirthdate();
 
-          People people = new People(firstName, lastName, birthdate);
+        //   People people = new People(firstName, lastName, birthdate);
 
-          if (!ConfirmCreate(people))
-          {
-            continue;
-          }
+        //   if (!ConfirmCreate(people))
+        //   {
+        //     continue;
+        //   }
 
-          Repository.Save(people);
-          return;
-        }
+        //   Repository.Save(people);
+        //   return;
+        // }
       }
 
       private DateTime GetBirthdate()
