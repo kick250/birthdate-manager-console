@@ -74,7 +74,7 @@ namespace BirthdateManager
 
       public void Update(People people)
       {
-        // Database.Update(people.ToDictionary());
+        Database.Update(people.ToDictionary());
       }
 
       public void DeleteById(int id)

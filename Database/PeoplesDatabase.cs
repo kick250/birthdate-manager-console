@@ -36,6 +36,22 @@ public class PeoplesDatabase
     File.AppendAllText(filePath, FormatPeopleToString(peopleData));
   }
 
+  public void Update(Dictionary<string, string?> editedPeopleData)
+  {
+    var peoples = GetAll();
+
+    var updatedPeoples = peoples.Select(peopleData => {
+      if (peopleData["Id"] == editedPeopleData["Id"])
+        return editedPeopleData;
+      return peopleData;
+    }).ToList();
+
+    File.WriteAllText(
+      filePath,
+      FormatPeoplesToString(updatedPeoples)
+    );
+  }
+
   public void DeleteById(int id)
   {
     var peoples = GetAll();

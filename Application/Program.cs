@@ -37,8 +37,8 @@ namespace BirthdateManagerConsole
           return SearchPeople.Build();
         case 2:
           return AddPeople.Build();
-        // case 3:
-        //   return UpdatePeople.Build();
+        case 3:
+          return UpdatePeople.Build();
         case 4:
           return DeletePeople.Build();
         case 5:
