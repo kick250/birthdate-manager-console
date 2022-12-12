@@ -64,6 +64,9 @@ namespace BirthdateManagerConsole
           } catch(IndexOutOfRangeException) {
             Console.WriteLine("Formato de data invalido.");
             continue;
+          } catch(ArgumentOutOfRangeException) {
+            Console.WriteLine("Formato de data invalido.");
+            continue;
           }
         }
       }
