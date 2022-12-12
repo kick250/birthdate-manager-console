@@ -33,7 +33,18 @@ public class PeoplesDatabase
 
   public void Create(Dictionary<string, string?> peopleData)
   {
-    File.AppendAllText(filePath, FormatPeopleString(peopleData));
+    File.AppendAllText(filePath, FormatPeopleToString(peopleData));
+  }
+
+  public void DeleteById(int id)
+  {
+    var peoples = GetAll();
+    peoples.RemoveAll(people => people["Id"] == $"{id}");
+
+    File.WriteAllText(
+      filePath,
+      FormatPeoplesToString(peoples)
+    );
   }
 
   public Dictionary<string, string?> ParseToPeopleData(string peopleDataString)
@@ -50,7 +61,19 @@ public class PeoplesDatabase
     return peopleData;
   }
 
-  public string FormatPeopleString(Dictionary<string, string?> peopleData)
+  public string FormatPeoplesToString(List<Dictionary<string, string?>> peoplesData)
+  {
+    string peoplesString = "";
+
+    foreach (var peopleData in peoplesData)
+    {
+      peoplesString += FormatPeopleToString(peopleData);
+    }
+
+    return peoplesString;
+  }
+
+  public string FormatPeopleToString(Dictionary<string, string?> peopleData)
   {
     string? id = peopleData["Id"];
     string? firstName = peopleData["FirstName"];

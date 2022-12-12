@@ -10,10 +10,20 @@ namespace BirthdateManager
       public People BuildFromDictionary(Dictionary<string, string?> peopleData)
       {
         return new People(
+          GetId(peopleData),
           peopleData["FirstName"],
           peopleData["LastName"],
           GetBirthdate(peopleData)
         );
+      }
+
+      public int? GetId(Dictionary<string, string?> peopleData)
+      {
+        string? id = peopleData["Id"];
+        if (id == null)
+          return null;
+
+        return int.Parse(id);
       }
 
       private DateTime? GetBirthdate(Dictionary<string, string?> peopleData)

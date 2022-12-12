@@ -79,7 +79,7 @@ namespace BirthdateManager
 
       public void DeleteById(int id)
       {
-        // Database.DeleteById(id);
+        Database.DeleteById(id);
       }
     }
   }

@@ -20,12 +20,14 @@ namespace BirthdateManagerConsole
     private static UserAction ShowMenuOptions()
     {
       int option = 0;
-      List<int> VALIDOPTIONS = new List<int> { 1, 2, 3 };
+      List<int> VALIDOPTIONS = new List<int> { 1, 2, 3, 4, 5 };
 
       Console.WriteLine("Escolha uma opção");
       Console.WriteLine("1 - Pesquisar pessoa");
       Console.WriteLine("2 - Adicionar pessoa");
-      Console.WriteLine("3 - Sair");
+      Console.WriteLine("3 - Atualizar pessoa");
+      Console.WriteLine("4 - Deletar pessoa");
+      Console.WriteLine("5 - Sair");
 
       option = Helper.ReadInt(message: "Sua escolha: ", validValues: VALIDOPTIONS);
 
@@ -35,7 +37,11 @@ namespace BirthdateManagerConsole
           return SearchPeople.Build();
         case 2:
           return AddPeople.Build();
-        case 3:
+        // case 3:
+        //   return UpdatePeople.Build();
+        case 4:
+          return DeletePeople.Build();
+        case 5:
           return FinishProgram.Build();
         default:
           throw new Exception("Valor invalido");

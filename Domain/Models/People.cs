@@ -28,14 +28,20 @@ namespace BirthdateManager
         Birthdate = birthdate;
       }
 
-      public int? GetId()
+      public int GetId()
       {
-        return Id;
+        if (Id == null)
+          return SetId();
+
+        return (int) Id;
       }
 
-      public void SetId()
+      public int SetId()
       {
-        Id = DateTime.Now.Second * 3 * DateTime.Now.Millisecond;
+        int newId = DateTime.Now.Second * 3 * DateTime.Now.Millisecond;
+        Id = newId;
+
+        return newId;
       }
 
       public string GetFirstName()
