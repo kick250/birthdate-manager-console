@@ -29,6 +29,11 @@ namespace BirthdateManager
         return Repository.GetAll();
       }
 
+      public List<People> GetBirthdayToday()
+      {
+        return Repository.GetBirthdayToday();
+      }
+
       public void Update(People people)
       {
         Repository.Update(people);

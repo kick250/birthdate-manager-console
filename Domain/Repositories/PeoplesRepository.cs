@@ -41,6 +41,11 @@ namespace BirthdateManager
         return peoples;
       }
 
+      public List<People> GetBirthdayToday()
+      {
+        return GetAll().Where(people => people.IsBirthdayToday()).ToList();
+      }
+
       public List<People> GetByName(string name)
       {
         var peoples = new List<People> {};
