@@ -8,7 +8,7 @@ namespace BirthdateManager
 {
   namespace Services
   {
-    public class PeoplesService
+    public class PeoplesService : IPeoplesService
     {
       PeoplesRepository Repository { get; set; }
 

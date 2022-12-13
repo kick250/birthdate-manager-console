@@ -8,7 +8,7 @@ namespace BirthdateManagerConsole
   {
     public class AddPeople : IUserAction
     {
-      private PeoplesService Service { get; set; }
+      private IPeoplesService Service { get; set; }
 
       public static AddPeople Build()
       {
@@ -17,7 +17,7 @@ namespace BirthdateManagerConsole
         );
       }
 
-      public AddPeople(PeoplesService service)
+      public AddPeople(IPeoplesService service)
       {
         Service = service;
       }

@@ -7,7 +7,7 @@ namespace BirthdateManagerConsole.UserActions;
 
 public class ShowBirthdaysToday : IUserAction
 {
-  private PeoplesService Service { get; set; }
+  private IPeoplesService Service { get; set; }
 
   public static ShowBirthdaysToday Build()
   {
@@ -16,7 +16,7 @@ public class ShowBirthdaysToday : IUserAction
     );
   }
 
-  public ShowBirthdaysToday(PeoplesService service)
+  public ShowBirthdaysToday(IPeoplesService service)
   {
     Service = service;
   }

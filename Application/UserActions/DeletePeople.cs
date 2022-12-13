@@ -8,7 +8,7 @@ namespace BirthdateManagerConsole
   {
     public class DeletePeople : IUserAction
     {
-      private PeoplesService Service { get; set; }
+      private IPeoplesService Service { get; set; }
 
       public static DeletePeople Build()
       {
@@ -17,7 +17,7 @@ namespace BirthdateManagerConsole
         );
       }
 
-      public DeletePeople(PeoplesService service)
+      public DeletePeople(IPeoplesService service)
       {
         Service = service;
       }

@@ -9,7 +9,7 @@ namespace BirthdateManagerConsole
   {
     public class SearchPeople : IUserAction
     {
-      private PeoplesService Service { get; set; }
+      private IPeoplesService Service { get; set; }
 
       public static SearchPeople Build()
       {
@@ -18,7 +18,7 @@ namespace BirthdateManagerConsole
         );
       }
 
-      public SearchPeople(PeoplesService service)
+      public SearchPeople(IPeoplesService service)
       {
         Service = service;
       }
