@@ -29,11 +29,6 @@ namespace BirthdateManager
         return Repository.GetAll();
       }
 
-      public List<People> GetAllOrderedByBirthdate()
-      {
-        return Repository.GetAllOrderedByBirthdate();
-      }
-
       public void Update(People people)
       {
         Repository.Update(people);
