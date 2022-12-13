@@ -40,7 +40,7 @@ namespace BirthdateManagerConsole
 
         Console.WriteLine($"Nome completo: {people.GetFullName()}");
         Console.WriteLine($"Data de aniversario: {people.GetFormattedBirthdate()}");
-        Console.WriteLine($"Faltam {people.GetDaysForBirthdate()} dias para esse aniversario.");
+        Console.WriteLine(GetMessage(people));
       }
 
       private People AskForPeopleOption(List<People> peoples)
@@ -60,6 +60,43 @@ namespace BirthdateManagerConsole
         int option = Helper.ReadInt(message: "Sua escolha: ", validValues: validValues);
 
         return peoples[option];
+      }
+
+      private string GetMessage(People people)
+      {
+        if (people.IsBirthdayToday())
+        {
+          return $"Hoje é aniversário do {people.GetFirstName()}";
+        }
+
+        var tomorrowDiff = DateTime.Today.AddDays(1) - DateTime.Now;
+        int daysForBirthdate = people.GetDaysForBirthdate();
+        int hoursToEndOfDay = tomorrowDiff.Hours;
+        int minutesToEndOfDay = tomorrowDiff.Minutes;
+
+        string message = $"Faltam ";
+
+        if (daysForBirthdate != 0)
+        {
+          string dayWord = daysForBirthdate == 1 ? "dia" : "dias";
+          message += $"{daysForBirthdate} {dayWord} ";
+        }
+
+        if (hoursToEndOfDay != 0)
+        {
+          string hourWord = hoursToEndOfDay == 1 ? "hora" : "horas";
+          message += $"{hoursToEndOfDay} {hourWord} ";
+        }
+
+        if (minutesToEndOfDay != 0)
+        {
+          string minuteWord = minutesToEndOfDay == 1 ? "minuto" : "minutos";
+          message += $"{minutesToEndOfDay} {minuteWord} ";
+        }
+
+        message += $"para o aniversário de {people.GetFirstName()}.";
+
+        return message;
       }
     }
   }
