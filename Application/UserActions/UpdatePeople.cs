@@ -30,8 +30,8 @@ namespace BirthdateManagerConsole
 
         while (true)
         {
-          string firstName = Helper.ReadString(input: "Digite o primeiro nome da pessoa: ");
-          string lastName = Helper.ReadString(input: "Digite o sobrenome da pessoa: ");
+          string firstName = Helper.ReadString(input: "Digite o novo primeiro nome da pessoa: ");
+          string lastName = Helper.ReadString(input: "Digite o novo sobrenome da pessoa: ");
           DateTime birthdate = GetBirthdate();
 
           People editedPeople = new People(people.GetId(), firstName, lastName, birthdate);
@@ -56,7 +56,7 @@ namespace BirthdateManagerConsole
         {
           try
           {
-            string unparsedBirthdate = Helper.ReadString(input: "Digite a data de aniversario da pessoa(dd/mm/yy): ");
+            string unparsedBirthdate = Helper.ReadString(input: "Digite a nova data de aniversario da pessoa(dd/mm/yy): ");
             string[] birthdateData = unparsedBirthdate.Split('/');
 
             day = int.Parse(birthdateData[0]);
