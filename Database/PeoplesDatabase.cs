@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PeoplesDatabase
 {
-  private const string filePath = "../peoples.txt";
+  private const string filePath = "/Users/kick/Desktop/peoples.txt";
 
   public static PeoplesDatabase Build()
   {
