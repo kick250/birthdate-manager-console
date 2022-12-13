@@ -15,19 +15,19 @@ namespace BirthdateManagerConsole
 
       while (true)
       {
-        UserAction action = ShowMenuOptions();
+        IUserAction action = ShowMenuOptions();
         action.Execute();
       }
     }
 
     private static void PrintBirdaysToday()
     {
-      UserAction action = ShowBirthdaysToday.Build();
+      IUserAction action = ShowBirthdaysToday.Build();
 
       action.Execute();
     }
 
-    private static UserAction ShowMenuOptions()
+    private static IUserAction ShowMenuOptions()
     {
       int option = 0;
       List<int> VALIDOPTIONS = new List<int> { 1, 2, 3, 4, 5, 6 };

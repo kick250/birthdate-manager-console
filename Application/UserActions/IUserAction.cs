@@ -3,7 +3,7 @@ using System;
 namespace BirthdateManagerConsole {
   namespace UserActions
   {
-    public interface UserAction
+    public interface IUserAction
     {
       public abstract void Execute();
     }

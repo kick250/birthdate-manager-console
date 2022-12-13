@@ -4,7 +4,7 @@ namespace BirthdateManagerConsole
 {
   namespace UserActions
   {
-    public class FinishProgram : UserAction
+    public class FinishProgram : IUserAction
     {
       public static FinishProgram Build()
       {

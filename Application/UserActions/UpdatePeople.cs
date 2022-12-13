@@ -6,7 +6,7 @@ namespace BirthdateManagerConsole
 {
   namespace UserActions
   {
-    public class UpdatePeople : UserAction
+    public class UpdatePeople : IUserAction
     {
       private PeoplesService Service { get; set; }
 

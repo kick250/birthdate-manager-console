@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BirthdateManagerConsole.UserActions;
 
-public class ShowBirthdaysToday : UserAction
+public class ShowBirthdaysToday : IUserAction
 {
   private PeoplesService Service { get; set; }
 
